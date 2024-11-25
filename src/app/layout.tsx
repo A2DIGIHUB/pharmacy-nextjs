@@ -10,7 +10,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   metadataBase: new URL(
-    process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3005'
+    process.env.URL || process.env.NETLIFY_URL || 'http://localhost:3005'
   ),
   title: {
     template: '%s | A2Care - Your Trusted Online Pharmacy',
