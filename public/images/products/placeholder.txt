@@ -1,0 +1,10 @@
+This directory contains product images.
+
+For development, you should add the following images:
+- pain-relief.jpg
+- vitamin-c.jpg
+- first-aid.jpg
+- thermometer.jpg
+- allergy.jpg
+
+You can use any appropriate medical/pharmacy product images for these placeholders.

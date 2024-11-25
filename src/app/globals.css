@@ -1,0 +1,177 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --header-height: 4rem;
+  --max-width: 1440px;
+  --border-radius: 12px;
+  --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
+    'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
+    'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
+}
+
+@layer base {
+  body {
+    @apply text-gray-900 bg-white antialiased;
+  }
+
+  /* Improve focus visibility for keyboard navigation */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-primary-blue ring-offset-2;
+  }
+
+  /* Improve text readability */
+  p, h1, h2, h3, h4, h5, h6 {
+    @apply text-balance;
+  }
+
+  /* Hide elements visually but keep them accessible to screen readers */
+  .sr-only {
+    @apply absolute w-px h-px p-0 -m-px overflow-hidden whitespace-nowrap border-0;
+  }
+
+  /* Smooth scrolling for better user experience */
+  html {
+    @apply scroll-smooth;
+  }
+}
+
+@layer components {
+  .container-custom {
+    @apply mx-auto px-4 sm:px-6 lg:px-8 max-w-[var(--max-width)];
+  }
+
+  .nav-link {
+    @apply relative text-gray-600 hover:text-primary-blue transition-colors duration-200 focus-visible:ring-2 focus-visible:ring-primary-blue focus-visible:ring-offset-2 rounded;
+  }
+
+  .nav-link-active {
+    @apply text-primary-blue font-medium;
+  }
+
+  .nav-link-active::after {
+    content: '';
+    @apply absolute left-0 -bottom-1 w-full h-0.5 bg-primary-blue rounded-full;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-primary-blue hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-blue transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-base font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-blue transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  /* Loading states */
+  .loading-skeleton {
+    @apply animate-pulse bg-gray-200 rounded;
+  }
+
+  /* Form elements */
+  .form-input {
+    @apply block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-blue focus:ring-primary-blue disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .form-label {
+    @apply block text-sm font-medium text-gray-700 mb-1;
+  }
+
+  .form-error {
+    @apply mt-1 text-sm text-red-600;
+  }
+
+  /* Tooltips */
+  .tooltip {
+    @apply invisible absolute z-10 px-3 py-2 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip group-hover:visible group-hover:opacity-100 transition-opacity duration-300;
+  }
+
+  /* Card components */
+  .card {
+    @apply bg-white rounded-lg shadow-md overflow-hidden transition-shadow duration-300 hover:shadow-lg;
+  }
+
+  /* Alert components */
+  .alert {
+    @apply p-4 rounded-md mb-4;
+  }
+
+  .alert-success {
+    @apply bg-green-50 text-green-800 border border-green-200;
+  }
+
+  .alert-error {
+    @apply bg-red-50 text-red-800 border border-red-200;
+  }
+
+  .alert-warning {
+    @apply bg-yellow-50 text-yellow-800 border border-yellow-200;
+  }
+
+  .alert-info {
+    @apply bg-blue-50 text-blue-800 border border-blue-200;
+  }
+
+  .hero-section {
+    @apply relative py-12 md:py-16 lg:py-20;
+  }
+
+  .content-section {
+    @apply py-12 md:py-16;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold text-gray-900 mb-4;
+  }
+
+  .section-subtitle {
+    @apply text-lg text-gray-600 mb-8;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Development breakpoint indicator - only visible in development */
+.breakpoint-indicator {
+  @apply fixed bottom-1 left-1 z-50 p-1.5 font-mono text-xs font-bold text-white bg-gray-800 rounded shadow-lg;
+}
+
+.breakpoint-indicator::after {
+  @apply hidden;
+  content: 'default';
+}
+
+@screen sm {
+  .breakpoint-indicator::after {
+    @apply block;
+    content: 'sm';
+  }
+}
+
+@screen md {
+  .breakpoint-indicator::after {
+    content: 'md';
+  }
+}
+
+@screen lg {
+  .breakpoint-indicator::after {
+    content: 'lg';
+  }
+}
+
+@screen xl {
+  .breakpoint-indicator::after {
+    content: 'xl';
+  }
+}
+
+@screen 2xl {
+  .breakpoint-indicator::after {
+    content: '2xl';
+  }
+}
