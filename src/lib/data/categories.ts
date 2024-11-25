@@ -25,7 +25,7 @@ export const categories: Category[] = [
     name: 'Over-the-Counter',
     slug: 'otc',
     description: 'Common medications available without prescription for everyday health needs.',
-    image: '/images/categories/prescription.jpg', // Using prescription image as fallback
+    image: '/images/products/vitamin-c.jpg', // Using prescription image as fallback
     productCount: 189,
     featured: true,
     subcategories: ['Pain Relief', 'Cold & Flu', 'Digestive Health', 'First Aid'],
